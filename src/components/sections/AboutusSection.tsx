@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-
+import 'animate.css';
 const features = [
   {
     category: 'Seafood & Fresh Produce Distribution',
@@ -53,7 +53,7 @@ const About = () => {
           Revolutionizing Seafood Distribution with Efficiency and
           Sustainability
         </h2>
-        <div className="mt-8 md:mt-16 w-full mx-auto space-y-20">
+        <div className="mt-8 md:mt-16 w-full mx-auto space-y-20 animate__fadeIn">
           {features.map((feature) => (
             <div
               key={feature.category}

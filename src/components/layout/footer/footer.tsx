@@ -8,36 +8,17 @@ import {
 import Link from 'next/link';
 
 const footerLinks = [
-  {
-    title: 'Overview',
-    href: '#',
-  },
-  {
-    title: 'Features',
-    href: '#',
-  },
-  {
-    title: 'Pricing',
-    href: '#',
-  },
-  {
-    title: 'Careers',
-    href: '#',
-  },
-  {
-    title: 'Help',
-    href: '#',
-  },
-  {
-    title: 'Privacy',
-    href: '#',
-  },
+  { title: 'Overview', href: '#' },
+  { title: 'Features', href: '#' },
+  { title: 'Pricing', href: '#' },
+  { title: 'Careers', href: '#' },
+  { title: 'Help', href: '#' },
+  { title: 'Privacy', href: '#' },
 ];
 
 const Footer = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="grow bg-muted" />
       <footer>
         <div className="max-w-screen-xl mx-auto">
           <div className="py-12 flex flex-col justify-start items-center">

@@ -1,42 +1,47 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const features = [
   {
-    category: "Seafood & Fresh Produce Distribution",
-    title: "Efficient Delivery of Fresh Seafood & Produce",
+    category: 'Seafood & Fresh Produce Distribution',
+    title: 'Efficient Delivery of Fresh Seafood & Produce',
     details:
-      "We provide fresh and frozen seafood and produce to restaurants, retailers, and hotels across Africa, ensuring timely and reliable deliveries.",
-    tutorialLink: "#", // Link to services or more information
+      'We provide fresh and frozen seafood and produce to restaurants, retailers, and hotels across Africa, ensuring timely and reliable deliveries.',
+    tutorialLink: '#', // Link to services or more information
+    backgroundImage: '/images/picture3.jpg', // Correct path to the image
   },
   {
-    category: "Independent Delivery Network",
-    title: "On-Demand & Scheduled Deliveries",
+    category: 'Independent Delivery Network',
+    title: 'On-Demand & Scheduled Deliveries',
     details:
-      "By partnering with independent refrigerated vehicle owners, we ensure that deliveries are made swiftly and efficiently.",
-    tutorialLink: "#", // Link to partner with us or more info
+      'By partnering with independent refrigerated vehicle owners, we ensure that deliveries are made swiftly and efficiently.',
+    tutorialLink: '#', // Link to partner with us or more info
+    backgroundImage: '/images/picture4.jpg', // Correct path to the image
   },
   {
-    category: "Sustainability & Ethical Sourcing",
-    title: "Promoting Sustainability and Ethical Sourcing",
+    category: 'Sustainability & Ethical Sourcing',
+    title: 'Promoting Sustainability and Ethical Sourcing',
     details:
-      "Our collaboration with artisanal fishermen and farmers supports ethical practices and ensures sustainable sourcing of all products.",
-    tutorialLink: "#", // Link to sustainability or more info
+      'Our collaboration with artisanal fishermen and farmers supports ethical practices and ensures sustainable sourcing of all products.',
+    tutorialLink: '#', // Link to sustainability or more info
+    backgroundImage: '/images/picture8.jpg', // Correct path to the image
   },
   {
-    category: "Youth Training & Industry Representation",
-    title: "Empowering Young People of Color in the Industry",
+    category: 'Youth Training & Industry Representation',
+    title: 'Empowering Young People of Color in the Industry',
     details:
-      "We invest in training and mentoring young Africans, providing them with skills in logistics and food distribution management.",
-    tutorialLink: "#", // Link to youth programs or more info
+      'We invest in training and mentoring young Africans, providing them with skills in logistics and food distribution management.',
+    tutorialLink: '#', // Link to youth programs or more info
+    backgroundImage: '/images/picture5.jpg', // Correct path to the image
   },
   {
-    category: "Partner with Us",
-    title: "Join Us in Revolutionizing the Food Supply Chain",
+    category: 'Partner with Us',
+    title: 'Join Us in Revolutionizing the Food Supply Chain',
     details:
-      "Restaurants, retailers, and independent drivers can join us to become a part of our growing network and benefit from increased operational efficiency.",
-    tutorialLink: "#", // Link to partner signup or more info
+      'Restaurants, retailers, and independent drivers can join us to become a part of our growing network and benefit from increased operational efficiency.',
+    tutorialLink: '#', // Link to partner signup or more info
+    backgroundImage: '/images/picture7.jpg', // Correct path to the image
   },
 ];
 
@@ -45,7 +50,8 @@ const About = () => {
     <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-screen-lg w-full py-10 px-6">
         <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-black tracking-tight max-w-xl md:text-center md:mx-auto">
-          Revolutionizing Seafood Distribution with Efficiency and Sustainability
+          Revolutionizing Seafood Distribution with Efficiency and
+          Sustainability
         </h2>
         <div className="mt-8 md:mt-16 w-full mx-auto space-y-20">
           {features.map((feature) => (
@@ -53,8 +59,15 @@ const About = () => {
               key={feature.category}
               className="flex flex-col md:flex-row items-center gap-x-20 gap-y-6 md:odd:flex-row-reverse"
             >
-              {/* Replace bg-muted with actual image */}
-              <div className="w-full aspect-[6/4] bg-cover rounded-xl border border-border/50 basis-1/2" style={{ backgroundImage: 'url(/path/to/your/image.jpg)' }} />
+              {/* Displaying image dynamically */}
+              <div
+                className="w-full aspect-[6/4] bg-cover rounded-xl border border-border/50 basis-1/2"
+                style={{
+                  backgroundImage: `url(${feature.backgroundImage})`,
+                  backgroundSize: 'cover',
+                  backgroundRepeat: 'no-repeat',
+                }}
+              />
               <div className="basis-1/2 shrink-0">
                 <span className="uppercase font-semibold tracking-tight">
                   {feature.category}

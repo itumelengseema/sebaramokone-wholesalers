@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
-import { Logo } from "../navbar/logo";
+import { Logo } from "@/components/layout/navbar/logo";
 import { NavMenu } from "./nav-menu";
-import { NavigationSheet } from "@/components/layout/navbar/navigation-sheet";
+import { NavigationSheet } from "./navigation-sheet";
 
 const Navbar = () => {
   return (
-    <div className="min-h-screen bg-muted">
-      <nav className="h-16 bg-background border-b">
+    <div>
+      <nav className="h-16 bg-background border-b sticky top-0 z-50">
         <div className="h-full flex items-center justify-between max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <Logo />
 

@@ -1,6 +1,4 @@
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
+
 import 'animate.css';
 const features = [
   {
@@ -48,8 +46,8 @@ const features = [
 const About = () => {
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-screen-lg w-full py-10 px-6">
-        <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-black tracking-tight max-w-xl md:text-center md:mx-auto">
+      <div className="max-w-screen-lg w-full py-10 px-9">
+        <h2 className="text-4xl md:text-5xl font-black tracking-tight">
           Revolutionizing Seafood Distribution with Efficiency and
           Sustainability
         </h2>
@@ -78,14 +76,7 @@ const About = () => {
                 <p className="text-muted-foreground text-[17px]">
                   {feature.details}
                 </p>
-                <Button
-                  asChild
-                  className="mt-6 rounded-full min-w-40 text-[15px]"
-                >
-                  <Link href={feature.tutorialLink}>
-                    Learn More <ArrowRight />
-                  </Link>
-                </Button>
+         
               </div>
             </div>
           ))}

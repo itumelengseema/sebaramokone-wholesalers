@@ -42,15 +42,15 @@ const competitiveEdge = [
 
 const CompetitiveEdgePage = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center py-12">
+    <div className="min-h-screen flex items-center justify-center py-10">
       <div className="text-center">
-        <h2 className=" text-4xl md:text-6xl font-black tracking-tight">
+        <h2 className=" text-4xl md:text-5xl font-black tracking-tight">
           Our Competitive Edge
         </h2>
         <p className="mt-4 text-lg text-foreground/80">
           Discover what sets us apart in the seafood distribution industry.
         </p>
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-lg mx-auto px-6">
+        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-screen-lg mx-auto px-2 md:px-2">
           {competitiveEdge.map(
             ({ icon: Icon, title, description, tutorialLink }) => (
               <div

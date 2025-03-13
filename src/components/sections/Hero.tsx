@@ -22,9 +22,7 @@ const Hero = () => {
           style={{ scale: bounce }} // Applying the ball bounce animation (scale) to the left content
           className="space-y-6"
         >
-          <Badge className="bg-gradient-to-br via-70% from-primary via-muted/30 to-primary rounded-full py-1 border-none">
-            Place Your Order
-          </Badge>
+
           <h1 className="mt-6 max-w-[15ch] text-5xl lg:text-[2.75rem] xl:text-5xl font-black leading-[1.1] tracking-tight">
             Lorem ipsum dolor sit amet consectetur.
           </h1>

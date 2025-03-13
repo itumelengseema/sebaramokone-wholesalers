@@ -1,25 +1,18 @@
-
 import Image from 'next/image';
 
-import picture from '../../../public/images/karabo.jpg';
+import picture1 from '../../../public/images/karabo.jpg';
+import picture2 from '../../../public/images/Naidine.jpg';
 
 const teamMembers = [
   {
     name: 'Naidene Knife',
     title: 'Founder & CEO',
-    imageUrl:
-      picture,
+    imageUrl: picture2,
   },
   {
     name: 'Sebaraboi Malele',
     title: 'Executive Director',
-    imageUrl: picture,
-  },
-  {
-    name: 'Bob Smith',
-    title: 'Product Manager',
-    imageUrl:
-      picture,
+    imageUrl: picture1,
   },
 ];
 
@@ -41,7 +34,10 @@ const Team = () => {
       {/* Team Members Grid */}
       <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 w-full max-w-4xl">
         {teamMembers.map((member) => (
-          <div key={member.name} className="flex flex-col items-center">
+          <div
+            key={member.name}
+            className="flex flex-col items-center "
+          >
             <Image
               src={member.imageUrl}
               alt={member.name}
@@ -51,8 +47,6 @@ const Team = () => {
             />
             <h3 className="mt-4 text-lg font-bold">{member.name}</h3>
             <p className="">{member.title}</p>
-
-          
           </div>
         ))}
       </div>

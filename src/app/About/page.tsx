@@ -1,10 +1,11 @@
-import Hero from '@/components/sections/About_page/Hero'
+import AboutUs from '@/components/sections/About_page/About_hero';
 
-
-function page() {
+function Page() {
   return (
-   <Hero />
-  )
+    <div className="container mx-auto">
+      <AboutUs />
+    </div>
+  );
 }
 
-export default page
+export default Page;

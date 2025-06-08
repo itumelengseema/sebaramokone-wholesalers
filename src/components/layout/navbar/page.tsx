@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Logo } from './logo';
 import { NavMenu } from './nav-menu';
 import { NavigationSheet } from './navigation-sheet';
-import { SunIcon } from 'lucide-react';
+
 
 const Navbar02Page = () => {
   return (

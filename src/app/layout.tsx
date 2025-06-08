@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { Poppins } from '@next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/layout/navbar/page';
 import Footer from '@/components/layout/footer/footer';
 
 const poppins = Poppins({
-  variable: '--font-poppins',
   subsets: ['latin'],
-  weight: ['400', '700'], // specify the weights you want
+  weight: ['400', '700'],
+  variable: '--font-poppins',
 });
 
 export const metadata: Metadata = {
@@ -17,18 +17,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${Poppins.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={poppins.variable}>
+      <body className="font-sans antialiased">
         <Navbar />
         {children}
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }

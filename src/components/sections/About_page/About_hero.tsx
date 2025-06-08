@@ -4,11 +4,11 @@ import Image from 'next/image';
 
 const AboutUs = () => {
   return (
-    <section className="py-32">
+    <section className="py-5 px-5 md:px-10 lg:px-20">
       <div className="container flex flex-col gap-28">
         <div className="flex flex-col gap-7">
           <h1 className="text-4xl font-semibold lg:text-7xl">
-            The Journey of Sebaramokone Wholesalers
+            The Journey of Nyami Nyami Seafood
           </h1>
           <p className="max-w-xl text-lg">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error quod

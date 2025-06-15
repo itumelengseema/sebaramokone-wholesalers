@@ -60,13 +60,13 @@ const PartnerCTA = () => {
             </h4>
             <p className="mt-4 text-base text-muted-foreground">
               <strong>
-                Source Smarter – Partner with Africa’s Rising Seafood Network
+                ${`Source Smarter – Partner with Africa’s Rising Seafood Network`}
               </strong>
               <br />
               <br />
               Nyami Nyami gives you direct access to traceable, sustainable, and
-              premium-quality seafood and fresh produce. Whether you're a
-              restaurant group, retailer, or wholesale distributor – we’re here
+              premium-quality seafood and fresh produce. Whether your a
+              restaurant group, retailer, or wholesale distributor we are here
               to simplify your sourcing process.
             </p>
             <ul className="mt-4 list-disc list-inside text-muted-foreground">

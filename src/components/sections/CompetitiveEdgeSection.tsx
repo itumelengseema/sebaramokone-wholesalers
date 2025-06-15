@@ -1,5 +1,4 @@
 import { Star, Shield, Target, Rocket, CheckCircle } from 'lucide-react';
-import React from 'react';
 import Link from 'next/link'; // Import Link for navigation
 
 const competitiveEdge = [

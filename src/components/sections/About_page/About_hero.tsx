@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import React from 'react';
 import ShapeIcon from '../../../../public/branding/ShapeIcon.svg';
 
 const AboutUs = () => {

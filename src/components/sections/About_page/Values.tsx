@@ -13,24 +13,20 @@ const features = [
   },
     {
     iconSrc: '/Icons/ShapeIcon1.svg',
-    title: "Excellence Always",
-    description: "From product quality to last-mile delivery — we don’t cut corners.",
+    title: "Access is Power",
+    description: "Small players deserve big opportunities. We make that happen.",
   },
     {
     iconSrc: '/Icons/ShapeIcon1.svg',
-    title: "Excellence Always",
-    description: "From product quality to last-mile delivery — we don’t cut corners.",
+    title: "Real Relationships",
+    description: "We’re present, we show up, we keep our word.",
   },
     {
     iconSrc: '/Icons/ShapeIcon2.svg',
-    title: "Excellence Always",
-    description: "From product quality to last-mile delivery — we don’t cut corners.",
+    title: "Pan-African Purpose",
+    description: "Our business is local; our vision is continental",
   },
-    {
-    iconSrc: '/Icons/ShapeIcon4.svg',
-    title: "Excellence Always",
-    description: "From product quality to last-mile delivery — we don’t cut corners.",
-  },
+
   // add other icons similarly
 ];
 

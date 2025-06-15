@@ -1,4 +1,4 @@
-import { MailIcon, MapPinIcon, MessageCircle, PhoneIcon } from 'lucide-react';
+import { MailIcon, MessageCircle, PhoneIcon } from 'lucide-react';
 import Link from 'next/link';
 
 const Contact_hero = () => (
@@ -24,8 +24,7 @@ const Contact_hero = () => (
             className="font-medium"
             href="mailto:akashmoradiya3444@gmail.com"
           >
-             orders@sebara.co.za 
-
+            orders@sebara.co.za
           </Link>
         </div>
         <div className="bg-accent p-6 pb-10 rounded-lg">
@@ -40,7 +39,7 @@ const Contact_hero = () => (
             Start new chat
           </Link>
         </div>
-    
+
         <div className="bg-accent p-6 pb-10 rounded-lg">
           <div className="h-12 w-12 flex items-center justify-center bg-primary/10 text-primary rounded-full">
             <PhoneIcon />
@@ -50,7 +49,7 @@ const Contact_hero = () => (
             Mon-Fri from 8am to 5pm.
           </p>
           <Link className="font-medium" href="tel:akashmoradiya3444@gmail.com">
-         0788262922
+            0788262922
           </Link>
         </div>
       </div>

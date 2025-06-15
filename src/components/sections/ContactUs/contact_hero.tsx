@@ -1,4 +1,4 @@
-import { MailIcon, MapPinIcon, MessageCircle, PhoneIcon } from 'lucide-react';
+import { MailIcon, MessageCircle, PhoneIcon } from 'lucide-react';
 import Link from 'next/link';
 
 const Contact_hero = () => (

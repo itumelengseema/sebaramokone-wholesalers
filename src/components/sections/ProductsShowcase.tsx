@@ -53,11 +53,7 @@ const ProductCarousel = () => {
         <h3 className="text-3xl md:text-5xl font-black tracking-tight">
           Products We Supply
         </h3>
-        <p className="mt-6 text-lg text-muted-foreground">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-          dolorem animi quis consectetur ducimus quasi sit et ad est
-          aspernatur!.
-        </p>
+   
         <Carousel className="py-12">
           <CarouselContent className="-ml-4">
             {products.map((product) => (

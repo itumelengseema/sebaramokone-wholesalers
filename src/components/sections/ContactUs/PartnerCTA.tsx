@@ -1,20 +1,21 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import React from "react";
+import iconbg from '../../../../public/images/Creative team-pana.svg'
+
 
 const PartnerCTA = () => {
   return (
     <section className="bg-muted/40 py-16 px-6">
       <div className="max-w-screen-xl mx-auto space-y-20">
+
         {/* For Producers */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="text-3xl md:text-4xl font-bold">
-              Partner With Us
-            </h3>
+            <h3 className="text-3xl md:text-4xl font-bold">Partner With Us</h3>
             <h4 className="mt-2 text-lg font-semibold text-muted-foreground">
               For Farmers, Fishermen & Local Producers
             </h4>
@@ -37,23 +38,20 @@ const PartnerCTA = () => {
             </div>
           </div>
 
-          {/* Optionally add an image or icon here */}
-     <div className="relative w-full h-80 rounded-xl overflow-hidden hidden lg:block">
-  <Image
-    src="public\images\Creative team-pana.svg"
-    alt="Partner illustration"
-    fill
-    className="object-contain"
-  />
-</div>
-
+          <div className="relative w-full h-80 rounded-xl overflow-hidden hidden lg:block">
+            <Image
+              src={iconbg}
+              alt="Partner illustration"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
 
         {/* For Buyers */}
         <div className="grid lg:grid-cols-2 gap-12 items-center lg:flex-row-reverse">
           <div>
-            <h3 className="text-3xl md:text-4xl font-bold">
-              Work With Us
-            </h3>
+            <h3 className="text-3xl md:text-4xl font-bold">Work With Us</h3>
             <h4 className="mt-2 text-lg font-semibold text-muted-foreground">
               For Restaurants, Retailers & Bulk Buyers
             </h4>
@@ -75,9 +73,16 @@ const PartnerCTA = () => {
             </div>
           </div>
 
-          {/* Optional visual */}
-          <div className="w-full h-80 bg-muted rounded-xl hidden lg:block" />
+          <div className="relative w-full h-80 rounded-xl overflow-hidden hidden lg:block">
+            <Image
+              src="/images/creative-team-pana.svg"
+              alt="Buyer collaboration illustration"
+              fill
+              className="object-contain"
+            />
+          </div>
         </div>
+
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <About />
       <CompetitiveEdgePage />
-      <Team />
+     
       <ProductShowcase />
       <Logos />
     </div>

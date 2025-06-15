@@ -24,7 +24,7 @@ const footerLinks = [
 
 const Footer = () => {
   return (
-    <div className=" flex flex-col bg-stone-100 rounded-t-3xl">
+    <div className=" flex flex-col bg-stone-400 rounded-t-3xl">
       <footer>
         <div className="max-w-screen-xl mx-auto">
           <div className="py-9 flex flex-col justify-start items-center">

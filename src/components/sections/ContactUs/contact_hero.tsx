@@ -24,7 +24,8 @@ const Contact_hero = () => (
             className="font-medium"
             href="mailto:akashmoradiya3444@gmail.com"
           >
-            akashmoradiya3444@gmail.com
+             orders@sebara.co.za 
+
           </Link>
         </div>
         <div className="bg-accent p-6 pb-10 rounded-lg">
@@ -39,22 +40,7 @@ const Contact_hero = () => (
             Start new chat
           </Link>
         </div>
-        <div className="bg-accent p-6 pb-10 rounded-lg">
-          <div className="h-12 w-12 flex items-center justify-center bg-primary/10 text-primary rounded-full">
-            <MapPinIcon />
-          </div>
-          <h3 className="mt-8 font-bold text-xl">Office</h3>
-          <p className="mt-2.5 mb-4 text-muted-foreground">
-            Come say hello at our office HQ.
-          </p>
-          <Link
-            className="font-medium"
-            href="https://map.google.com"
-            target="_blank"
-          >
-            100 Smith Street Collingwood <br /> VIC 3066 AU
-          </Link>
-        </div>
+    
         <div className="bg-accent p-6 pb-10 rounded-lg">
           <div className="h-12 w-12 flex items-center justify-center bg-primary/10 text-primary rounded-full">
             <PhoneIcon />
@@ -64,7 +50,7 @@ const Contact_hero = () => (
             Mon-Fri from 8am to 5pm.
           </p>
           <Link className="font-medium" href="tel:akashmoradiya3444@gmail.com">
-            +1 (555) 000-0000
+         0788262922
           </Link>
         </div>
       </div>

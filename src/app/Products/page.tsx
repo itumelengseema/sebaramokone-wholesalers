@@ -1,6 +1,8 @@
+'use client'
 import { useEffect, useState } from 'react';
 import { sanityClient } from '@/sanity/lib/sanity';
 import ProductCard from '@/components/sections/Products/ProductCard';
+
 
 // Define proper types
 type Product = {

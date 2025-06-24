@@ -1,114 +1,130 @@
-'use client';
-
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { sanityClient } from '@/sanity/lib/sanity';
 import ProductCard from '@/components/sections/Products/ProductCard';
 
-const allProducts = [
-  {
-    id: 1,
-    name: 'Grilled Prawns',
-    description: 'Succulent grilled prawns with garlic butter glaze.',
-    price: 150,
-    category: 'Shellfish',
-    dateAdded: '2024-06-01',
-    image: 'https://images.pexels.com/photos/128388/pexels-photo-128388.jpeg?auto=compress&cs=tinysrgb&h=300',
-  },
-  {
-    id: 2,
-    name: 'Seafood Platter',
-    description: 'A mix of prawns, calamari, fish, and mussels.',
-    price: 320,
-    category: 'Platter',
-    dateAdded: '2024-06-05',
-    image: 'https://images.pexels.com/photos/960984/pexels-photo-960984.jpeg?auto=compress&cs=tinysrgb&h=300',
-  },
-  {
-    id: 3,
-    name: 'Calamari Rings',
-    description: 'Crispy golden fried calamari served with tartar sauce.',
-    price: 120,
-    category: 'Shellfish',
-    dateAdded: '2024-06-03',
-    image: 'https://images.pexels.com/photos/65174/pexels-photo-65174.jpeg?auto=compress&cs=tinysrgb&h=300',
-  },
-  {
-    id: 4,
-    name: 'Line Fish Grilled',
-    description: 'Fresh line fish grilled to perfection.',
-    price: 180,
-    category: 'Fish',
-    dateAdded: '2024-06-08',
-    image: 'https://images.pexels.com/photos/4106486/pexels-photo-4106486.jpeg?auto=compress&cs=tinysrgb&h=300',
-  },
-  {
-    id: 5,
-    name: 'Fried Hake',
-    description: 'Golden fried hake with crispy batter.',
-    price: 140,
-    category: 'Fish',
-    dateAdded: '2024-06-07',
-    image: 'https://images.pexels.com/photos/1860200/pexels-photo-1860200.jpeg?auto=compress&cs=tinysrgb&h=300',
-  },
-];
+// Define proper types
+type Product = {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  dateAdded: string;
+  image: string;
+  category: string;
+};
+
+type Category = {
+  name: string;
+};
+
+type SortOrder = 'latest' | 'asc' | 'desc';
 
 export default function ProductsPage() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [visibleCount, setVisibleCount] = useState(3);
-  const [category, setCategory] = useState('All');
-  const [sortOrder, setSortOrder] = useState('latest');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('latest');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const getFilteredProducts = () => {
-    let products = [...allProducts];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        
+        const prodQuery = `*[_type == "product"]{
+          _id,
+          name,
+          description,
+          price,
+          dateAdded,
+          "image": image.asset->url,
+          "category": category->name
+        }`;
+        
+        const catQuery = `*[_type == "category"]{
+          name
+        }`;
 
-    // Filter
-    if (category !== 'All') {
-      products = products.filter((p) => p.category === category);
-    }
+        const [productData, categoryData] = await Promise.all([
+          sanityClient.fetch<Product[]>(prodQuery),
+          sanityClient.fetch<Category[]>(catQuery),
+        ]);
 
-    // Sort
-    products.sort((a, b) => {
-      if (sortOrder === 'asc') return a.price - b.price;
-      if (sortOrder === 'desc') return b.price - a.price;
-      if (sortOrder === 'latest') {
-        return new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+        setProducts(productData);
+        setCategories(['All', ...categoryData.map(c => c.name)]);
+      } catch (err) {
+        setError('Failed to load products. Please try again later.');
+        console.error('Fetch error:', err);
+      } finally {
+        setLoading(false);
       }
-      return 0;
-    });
+    };
 
-    // Limit visible count
-    return products.slice(0, visibleCount);
-  };
+    fetchData();
+  }, []);
 
-  const filtered = getFilteredProducts();
+  const filteredProducts = products
+    .filter(p => selectedCategory === 'All' || p.category === selectedCategory)
+    .sort((a, b) => {
+      switch (sortOrder) {
+        case 'asc': return a.price - b.price;
+        case 'desc': return b.price - a.price;
+        case 'latest': 
+        default: 
+          return new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+      }
+    })
+    .slice(0, visibleCount);
 
-  const totalFiltered = allProducts.filter((p) => category === 'All' || p.category === category).length;
+  if (loading) {
+    return (
+      <div className="p-8 bg-gray-50 min-h-screen flex justify-center items-center">
+        <div className="text-xl">Loading products...</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="p-8 bg-gray-50 min-h-screen flex justify-center items-center">
+        <div className="text-xl text-red-500">{error}</div>
+      </div>
+    );
+  }
 
   return (
     <main className="p-8 bg-gray-50 min-h-screen">
       <h1 className="text-4xl font-bold mb-6 text-center">Our Products</h1>
 
+      {/* Filters */}
       <div className="flex flex-wrap gap-4 justify-center mb-6">
-        {['All', 'Fish', 'Shellfish', 'Platter'].map((cat) => (
+        {categories.map(cat => (
           <button
             key={cat}
             onClick={() => {
-              setCategory(cat);
-              setVisibleCount(3); // reset count when filter changes
+              setSelectedCategory(cat);
+              setVisibleCount(3);
             }}
-            className={`px-4 py-2 rounded border ${
-              category === cat ? 'bg-green-600 text-white' : 'bg-white text-gray-800'
+            className={`px-4 py-2 rounded border transition-colors ${
+              selectedCategory === cat 
+                ? 'bg-green-600 text-white border-green-600' 
+                : 'bg-white text-gray-800 hover:bg-gray-100'
             }`}
           >
             {cat}
           </button>
         ))}
-
+        
         <select
           onChange={(e) => {
-            setSortOrder(e.target.value);
-            setVisibleCount(3); // reset on sort
+            setSortOrder(e.target.value as SortOrder);
+            setVisibleCount(3);
           }}
-          className="px-4 py-2 rounded border"
           value={sortOrder}
+          className="px-4 py-2 border rounded bg-white focus:outline-none focus:ring-2 focus:ring-green-500"
         >
           <option value="latest">Latest</option>
           <option value="asc">Price: Low to High</option>
@@ -116,26 +132,33 @@ export default function ProductsPage() {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
-        {filtered.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </div>
+      {/* Products Grid */}
+      {filteredProducts.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+          {filteredProducts.map(product => (
+            <ProductCard key={product._id} product={product} />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-12 text-gray-500">
+          No products found in this category.
+        </div>
+      )}
 
+      {/* Pagination Controls */}
       <div className="mt-8 flex justify-center gap-4">
-        {visibleCount < totalFiltered && (
+        {visibleCount < products.length && (
           <button
-            onClick={() => setVisibleCount((prev) => prev + 2)}
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+            onClick={() => setVisibleCount(prev => Math.min(prev + 3, products.length))}
+            className="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition-colors"
           >
             Show More
           </button>
         )}
-
         {visibleCount > 3 && (
           <button
             onClick={() => setVisibleCount(3)}
-            className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+            className="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600 transition-colors"
           >
             Show Less
           </button>

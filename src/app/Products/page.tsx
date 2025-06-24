@@ -1,4 +1,3 @@
-// src/app/products/page.tsx
 'use client';
 
 import { useState } from 'react';
@@ -57,16 +56,31 @@ export default function ProductsPage() {
   const [category, setCategory] = useState('All');
   const [sortOrder, setSortOrder] = useState('latest');
 
-  const filtered = allProducts
-    .filter((p) => category === 'All' || p.category === category)
-    .sort((a, b) => {
+  const getFilteredProducts = () => {
+    let products = [...allProducts];
+
+    // Filter
+    if (category !== 'All') {
+      products = products.filter((p) => p.category === category);
+    }
+
+    // Sort
+    products.sort((a, b) => {
       if (sortOrder === 'asc') return a.price - b.price;
       if (sortOrder === 'desc') return b.price - a.price;
-      if (sortOrder === 'latest')
+      if (sortOrder === 'latest') {
         return new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime();
+      }
       return 0;
-    })
-    .slice(0, visibleCount);
+    });
+
+    // Limit visible count
+    return products.slice(0, visibleCount);
+  };
+
+  const filtered = getFilteredProducts();
+
+  const totalFiltered = allProducts.filter((p) => category === 'All' || p.category === category).length;
 
   return (
     <main className="p-8 bg-gray-50 min-h-screen">
@@ -76,7 +90,10 @@ export default function ProductsPage() {
         {['All', 'Fish', 'Shellfish', 'Platter'].map((cat) => (
           <button
             key={cat}
-            onClick={() => setCategory(cat)}
+            onClick={() => {
+              setCategory(cat);
+              setVisibleCount(3); // reset count when filter changes
+            }}
             className={`px-4 py-2 rounded border ${
               category === cat ? 'bg-green-600 text-white' : 'bg-white text-gray-800'
             }`}
@@ -86,7 +103,10 @@ export default function ProductsPage() {
         ))}
 
         <select
-          onChange={(e) => setSortOrder(e.target.value)}
+          onChange={(e) => {
+            setSortOrder(e.target.value);
+            setVisibleCount(3); // reset on sort
+          }}
           className="px-4 py-2 rounded border"
           value={sortOrder}
         >
@@ -96,17 +116,14 @@ export default function ProductsPage() {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
         {filtered.map((product) => (
-          <ProductCard key={product.id} product={{
-            ...product,
-            priceRange: `R${(product.price - 20).toFixed(2)} - R${(product.price + 30).toFixed(2)}`
-          }} />
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
 
       <div className="mt-8 flex justify-center gap-4">
-        {visibleCount < allProducts.length && (
+        {visibleCount < totalFiltered && (
           <button
             onClick={() => setVisibleCount((prev) => prev + 2)}
             className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"

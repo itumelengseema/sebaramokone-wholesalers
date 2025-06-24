@@ -1,35 +1,44 @@
 'use client';
-
-import { Card, Button } from '@shade-cn/react';
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 type Product = {
-  id: number;
-  name: string;
-  description: string;
-  priceRange: string;
   image: string;
+  name: string;
+  description?: string;
+  price: number;
 };
 
-interface ProductCardProps {
-  product: Product;
-}
-
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product }: { product: Product }) {
   return (
-    <Card hoverShadow className="max-w-sm">
-      <Card.Image src={product.image} alt={product.name} height={200} />
-      <Card.Body>
-        <Card.Title>{product.name}</Card.Title>
-        <Card.Text>{product.description}</Card.Text>
-        <div className="flex justify-between items-center mt-4">
-          <span className="text-lg font-semibold text-green-600">
-            {product.priceRange}
-          </span>
-          <Button size="sm" color="primary">
-            Buy Now
-          </Button>
-        </div>
-      </Card.Body>
+    <Card className="w-full max-w-sm">
+      <Image
+        src={product.image}
+        alt={product.name}
+        className="w-full h-48 object-cover rounded-t"
+        width={400}
+        height={400}
+      />
+      <CardHeader>
+        <CardTitle>{product.name}</CardTitle>
+        <CardDescription>{product.description ?? 'No description available.'}</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <p className="text-green-600 font-semibold">
+          R{(product.price - 20).toFixed(2)} - R{(product.price + 30).toFixed(2)}
+        </p>
+      </CardContent>
+      <CardFooter>
+        <Button className="w-full">Order Now</Button>
+      </CardFooter>
     </Card>
   );
 }

@@ -55,10 +55,10 @@ export default function ContactPage() {
                       Mon-Fri, 8am to 5pm
                     </p>
                     <Link
-                      href='tel:0788262922'
+                      href='tel:0764245677'
                       className='text-sm font-medium hover:text-primary'
                     >
-                      0788262922
+                      0764245677
                     </Link>
                   </div>
                 </div>

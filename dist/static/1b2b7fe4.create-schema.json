@@ -1,0 +1,160 @@
+[
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Product Name"
+      },
+      {
+        "options": {
+          "source": "name",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative Text"
+          }
+        ],
+        "name": "image",
+        "type": "image",
+        "title": "Product Image"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "Fresh Produce",
+              "value": "fresh-produce"
+            },
+            {
+              "title": "Seafood",
+              "value": "seafood"
+            },
+            {
+              "title": "Meat",
+              "value": "meat"
+            },
+            {
+              "title": "Dairy",
+              "value": "dairy"
+            },
+            {
+              "title": "Grains & Cereals",
+              "value": "grains"
+            },
+            {
+              "title": "Other",
+              "value": "other"
+            }
+          ]
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "valid",
+                "constraint": [
+                  "fresh-produce",
+                  "seafood",
+                  "meat",
+                  "dairy",
+                  "grains",
+                  "other"
+                ]
+              },
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "category",
+        "type": "string"
+      },
+      {
+        "rows": 4,
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "description": "Price in South African Rand",
+        "name": "price",
+        "type": "number",
+        "title": "Price (ZAR)"
+      },
+      {
+        "placeholder": "per kg",
+        "description": "e.g., per kg, per piece, per box",
+        "name": "unit",
+        "type": "string"
+      },
+      {
+        "options": {
+          "list": [
+            {
+              "title": "In Stock",
+              "value": "in-stock"
+            },
+            {
+              "title": "Out of Stock",
+              "value": "out-of-stock"
+            },
+            {
+              "title": "Seasonal",
+              "value": "seasonal"
+            }
+          ]
+        },
+        "initialValue": "in-stock",
+        "name": "availability",
+        "type": "string"
+      },
+      {
+        "initialValue": false,
+        "description": "Display this product on the homepage",
+        "name": "featured",
+        "type": "boolean",
+        "title": "Featured Product"
+      }
+    ],
+    "name": "product",
+    "type": "document"
+  }
+]

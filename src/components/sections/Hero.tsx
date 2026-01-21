@@ -61,7 +61,7 @@ const Hero01 = () => {
                 asChild
               >
                 <a
-                  href='https://wa.me/27788262922?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote'
+                  href='https://wa.me/27764245677?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote'
                   target='_blank'
                   rel='noopener noreferrer'
                 >

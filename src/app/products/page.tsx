@@ -251,7 +251,7 @@ function ProductCard({ product }: { product: Product }) {
       <CardFooter className='flex flex-col gap-2'>
         <Button className='w-full' asChild>
           <a
-            href={`https://wa.me/27788262922?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20${encodeURIComponent(product.name)}`}
+            href={`https://wa.me/27764245677?text=Hi%2C%20I%27d%20like%20to%20get%20a%20quote%20for%20${encodeURIComponent(product.name)}`}
             target='_blank'
             rel='noopener noreferrer'
           >

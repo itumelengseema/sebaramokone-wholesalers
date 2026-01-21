@@ -9,28 +9,28 @@ import Link from 'next/link';
 
 export const NavMenu = (props: NavigationMenuProps) => (
   <NavigationMenu {...props}>
-    <NavigationMenuList className="gap-6 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start">
+    <NavigationMenuList className='gap-6 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start'>
       <NavigationMenuItem>
         <NavigationMenuLink asChild>
-          <Link href="/">Home</Link>
+          <Link href='/'>Home</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
 
       <NavigationMenuItem>
         <NavigationMenuLink asChild>
-          <Link href="/About">About</Link>
+          <Link href='/About'>About</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
 
       <NavigationMenuItem>
         <NavigationMenuLink asChild>
-          <Link href="#">Products</Link>
+          <Link href='/products'>Products</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
 
       <NavigationMenuItem>
         <NavigationMenuLink asChild>
-          <Link href="/ContactUs">Contact Us</Link>
+          <Link href='/ContactUs'>Contact Us</Link>
         </NavigationMenuLink>
       </NavigationMenuItem>
     </NavigationMenuList>

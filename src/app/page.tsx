@@ -5,15 +5,18 @@ import Logos from '@/components/sections/Logos';
 
 import ProductShowcase from '@/components/sections/ProductsShowcase';
 
+export const revalidate = 60; // Revalidate every 60 seconds
+
 export default function Home() {
   return (
-    <div className="container mx-auto">
+    <div className=''>
       <Hero />
-      <About />
-      <CompetitiveEdgePage />
-     
-      <ProductShowcase />
-      <Logos />
+      <div className='container mx-auto'>
+        <About />
+        <CompetitiveEdgePage />
+        <ProductShowcase />
+        <Logos />
+      </div>
     </div>
   );
 }

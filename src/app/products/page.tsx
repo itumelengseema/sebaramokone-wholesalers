@@ -13,7 +13,6 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Fish, Beef, Apple, Package } from 'lucide-react';
-import Link from 'next/link';
 
 export const revalidate = 60; // Revalidate every 60 seconds
 

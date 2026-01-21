@@ -1,4 +1,3 @@
-import Contact_hero from '@/components/sections/ContactUs/contact_hero';
 import PartnerCTA from '@/components/sections/ContactUs/PartnerCTA';
 import CallMeBackForm from '@/components/sections/ContactUs/CallMeBackForm';
 import { MailIcon, PhoneIcon, MapPinIcon, Clock } from 'lucide-react';

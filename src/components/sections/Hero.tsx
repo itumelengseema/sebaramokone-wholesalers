@@ -1,4 +1,11 @@
-import React from 'react';
+# Remove node_modules and lock files
+rm -rf node_modules package-lock.json .next
+
+# Install dependencies fresh
+npm install
+
+# Start dev server
+npm run devimport React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';

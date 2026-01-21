@@ -99,7 +99,8 @@ export default function CallMeBackForm() {
       <div className='mb-8'>
         <h2 className='text-3xl font-bold'>Request a Call Back</h2>
         <p className='mt-2 text-muted-foreground'>
-          Fill out the form below and we`&pos`ll get back to you as soon as possible.
+          Fill out the form below and we`&pos`ll get back to you as soon as
+          possible.
         </p>
       </div>
 

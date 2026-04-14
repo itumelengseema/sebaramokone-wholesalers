@@ -20,11 +20,11 @@ const Navbar02Page = () => {
           </Button>
           <Button className='' asChild>
             <a
-              href='https://wa.me/27764245677?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order'
+              href='https://online.nyami-nyami.co.za/collections/all'
               target='_blank'
               rel='noopener noreferrer'
             >
-              Order Now
+             Shop Seafood Online
             </a>
           </Button>
 
